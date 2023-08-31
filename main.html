@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <header>
+        
+    </header>
+    <div class="main">
+
+        <div class="mainLeft">
+            <h1 class="web-title">Shopping How</h1>
+    
+            <!-- <a>옷 쇼핑 팁을 알려드립니다.</a> -->
+    
+            <form class="productSearch" method="post">
+                <label for="productType">상품 종류가 무엇인가요?</label>
+                <input in="productType" id="productType" type="text" autocomplete="on">
+    
+                <label for="productPrice">원하시는 가격대가 얼마인가요?</label>
+                <input in="productPrice" id="productPrice" type="text">
+    
+                <label for="destination">착용 장소가 어떻게 되나요?</label>
+                <input in="destination" id="destination" type="text">
+    
+                <fieldset class="genderSelect" required="on">
+                    <legend>성별</legend>
+                    <label for="gender">남</label>
+                    <input in="gender" name="gender" id="male" value="male" type="radio" >
+                    <label for="gender">여</label>
+                    <input in="gender" name="gender" id="females" value="females" type="radio">
+                </fieldset>
+                
+                <label for="age">나이</label>
+                <select in="age" name="age" id="year" required="on"></select>
+
+                
+                <button type="submit">추천 받기</button>
+            </form>
+        </div>
+
+        <div class="answer"></div>
+    </div>
+        <footer></footer>
+    <script src="chat.js"></script>
+    <script src="setDateYear.js"></script>
+</body>
+</html>
