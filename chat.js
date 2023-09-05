@@ -1,14 +1,10 @@
-const $input = document.querySelector('input')
-const $button = document.querySelector('button')
-const $answer = document.querySelector('.answer')
+const $input = document.querySelector('input');
+const $button = document.querySelector('button');
+const $answer = document.querySelector('.answer');
 
-const data = []
-// data.push({
-//     "role": "system",
-//     "content": "assistant는 쇼핑 정보를 알려주는 가이드."
-// })
+const data = [];
 
-const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`
+const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 
 const answerElement = document.querySelector('.answer');
 const answerContent = document.getElementById('answerContent');
@@ -20,19 +16,27 @@ $button.addEventListener('click', async(e) => {
     const productType = document.getElementById('productType').value;
     const productPrice = document.getElementById('productPrice').value;
     const destination = document.getElementById('destination').value;
-    const gender = document.querySelector('input[name="gender"]:checked');
+    const gender = document.querySelector('input[name="gender"]:checked').value;
     const age = document.getElementById('year').value;
 
-    const question = `${destination} + "에서" + ${productType} + ${productPrice} + ${gender} + ${age} + " 이 입을 거 \n 브랜드명 : \n 상품명 : \n 가격 : \n 설명 : \n 양식으로 추천해줘"`
+    
+    if (!productType || !productPrice || !destination || !gender || !age) {
+        alert('모든 입력 필드를 작성하세요.');
+        return;
+    }
+    
+    const question = `패션상품 추천 여러개 해줘 착용장소:${destination} 상품종류:${productType} 상품가격:${productPrice} 성별:${gender} 나이:${age}년생 양식은 다음과 같이 브랜드명: 상품명: 가격: 설명: `
+
+    console.log(gender, age);
 
     data.push({
         "role": "user",
         "content": question,
     })
 
-    // $input.value = ''
+    // input.value = ''
 
-    // chatGPTAPI()
+    chatGPTAPI()
 })
 
 function chatGPTAPI() {
@@ -42,14 +46,14 @@ function chatGPTAPI() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
-        redirect: 'follow'
+        redirect: 'follow',
+        max_tokens: 150, // 응답으로 받을 최대 토큰 수 지정
+        temperature: 0.7, // 다양한 응답을 얻기 위한 온도 설정 (조절 가능)
     })
     .then(res => res.json())
     .then(res => {
-        // console.log(res)
-        // 답변 온 것을 assistant로 저장
         answerElement.style.display = 'flex';
-        // answerContent.innerHTML = `<p>${res.choices[0].message.content}</p>`
-        answerContent.textContent = res;
+        answerContent.innerHTML = `<p>${res.choices[0].message.content.replace(/\n/g, '<br>')}</p>`
+        // answerContent.textContent = res;
     })
 }

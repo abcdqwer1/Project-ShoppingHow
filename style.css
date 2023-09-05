@@ -84,6 +84,7 @@ button {
 
 .answerItem {
     width: 500px;
+    height: 500px;
     list-style: none;
     border: 2px solid #ccc;
     border-radius: 8px;

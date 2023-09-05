@@ -22,7 +22,9 @@ $button.addEventListener('click', async (e) => {
     }
 
     // 질문 생성
-    const question = `${destination}에서 ${productType} ${productPrice} ${gender.value} ${age} 이 입을 거\n브랜드명 :\n상품명 :\n가격 :\n설명 :\n양식으로 추천해줘`;
+    const question = `${destination}에서 ${productType} ${productPrice} ${gender.value} ${age}년생이 입을 거\n브랜드명 :\n상품명 :\n가격 :\n설명 :\n양식으로 추천해줘`;
+
+    console.log(question);
 
     // 사용자 질문을 데이터에 추가
     data.push({
@@ -38,8 +40,6 @@ $button.addEventListener('click', async (e) => {
         },
         body: JSON.stringify({
             prompt: data.map(item => item.content).join('\n'),
-            max_tokens: 150,
-            temperature: 0.7,
         }),
     });
 
