@@ -27,8 +27,6 @@ $button.addEventListener('click', async(e) => {
     
     const question = `패션상품 추천 여러개 해줘 착용장소:${destination} 상품종류:${productType} 상품가격:${productPrice} 성별:${gender} 나이:${age}년생 양식은 다음과 같이 브랜드명: 상품명: 가격: 설명: `
 
-    console.log(gender, age);
-
     data.push({
         "role": "user",
         "content": question,
