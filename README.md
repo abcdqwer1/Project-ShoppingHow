@@ -53,7 +53,6 @@
             chat_1.js
             loadingMsg.js
             mvSearchHome.js
-            paging.js
             setDateYear.js
             
 
