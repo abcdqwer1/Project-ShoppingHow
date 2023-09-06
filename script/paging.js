@@ -72,8 +72,8 @@ const pageChange = $productSearch.querySelector('.btn2')
 
         backButton.addEventListener('click', function () {
         if (currentPage === page2) {
-            $productSearch.innerHTML = page1;
-            currentPage = page1;
+            $productSearch.innerHTML = page2;
+            currentPage = page2;
         } else {
             $productSearch.innerHTML = page1;
             currentPage = page1;

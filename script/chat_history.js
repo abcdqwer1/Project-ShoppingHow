@@ -1,13 +1,20 @@
 const $button = document.querySelector('button');
+const QUESTION_KEY = 'questions';
+const ANSWER_KEY = 'answers';
+const $history = document.getElementById('history');
+const $history_print = document.getElementById('history_print');
 const answerElement = document.querySelector('.answer');
 const answerContent = document.getElementById('answerContent');
+
 const data = [
     {
     "role": "system",
     "content": "assistant는 상품 추천 전문가이다."
 }
 ];
+
 const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
+
 
 $button.addEventListener('click', (e) => {
     e.preventDefault();
@@ -18,6 +25,7 @@ $button.addEventListener('click', (e) => {
     const gender = document.querySelector('input[name="gender"]:checked').value;
     const age = document.getElementById('year').value;
 
+    
     if (!productType || !productPrice || !destination || !gender || !age) {
         alert('모든 입력 필드를 작성하세요.');
         return;
@@ -54,9 +62,32 @@ function chatGPTAPI() {
         
         loadingMessage.style.display = 'none';
         answerElement.style.display = 'flex';
-        answerContent.innerHTML = `<p>${res.choices[0].message.content.replace(/\n/g, '<br>')}</p>`
+        const answer = res.choices[0].message.content.replace(/\n/g, '<br>');
+        answerContent.innerHTML = `<p>${answer}</p>`;
+
+        saveQuestion(data[data.length - 1].content);
+        saveAnswer(answer);
     })
     .catch((err) => {
         console.log(err);
     });
+}
+
+$history.addEventListener('click', (e) => {
+    // e.preventDefault();
+    $history_print.innerHTML = `<p>${questions}<p>
+    <p>${answer}<p>`
+
+})
+
+function saveQuestion(question) {
+    const questions = JSON.parse(localStorage.getItem(QUESTION_KEY)) || [];
+    questions.push(question);
+    localStorage.setItem(QUESTION_KEY, JSON.stringify(questions));
+}
+
+function saveAnswer(answer) {
+    const answers = JSON.parse(localStorage.getItem(ANSWER_KEY)) || [];
+    answers.push(answer);
+    localStorage.setItem(ANSWER_KEY, JSON.stringify(answers));
 }

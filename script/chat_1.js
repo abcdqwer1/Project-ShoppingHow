@@ -2,14 +2,17 @@ const $input = document.querySelector('input');
 const $button = document.querySelector('.search_btn1');
 // const $answer = document.querySelector('.answer');
 
-const data = [];
+const data = [{
+    "role": "system",
+    "content": "assistant는 상품 추천 전문가이다."
+}];
 
 const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 
 const answerElement = document.querySelector('.search_answer');
 const answerContent = document.getElementById('search_answerContent');
 
-$button.addEventListener('click', async(e) => {
+$button.addEventListener('click', (e) => {
     e.preventDefault();
 
     // const productType = document.getElementById('productType').value;
