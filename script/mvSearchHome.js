@@ -1,7 +1,7 @@
 function moveSearch(){
-    location.href = "/search.html";
+    location.href = "./search.html";
 }
 
 function moveMain(){
-    location.href = "/index.html";
+    location.href = "./index.html";
 }
