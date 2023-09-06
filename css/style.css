@@ -115,6 +115,13 @@ button:active {
     background-color: rgb(234, 47, 0);
 }
 
+#loading_msg{
+    display: none;
+    margin-top: 10px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+}
+
 .answer {
     margin-top: 40px;
     /* display: flex; */
@@ -123,13 +130,6 @@ button:active {
     /* height: 500px; */
     /* align-items: center; */
     /* justify-content: center; */
-}
-
-#loading_msg{
-    display: none;
-    margin-top: 10px;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.5);
 }
 
 .answerItem {

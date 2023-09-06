@@ -6,8 +6,8 @@ const data = [];
 
 const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 
-const answerElement = document.querySelector('.answer');
-const answerContent = document.getElementById('answerContent');
+const answerElement = document.querySelector('.search_answer');
+const answerContent = document.getElementById('search_answerContent');
 
 $button.addEventListener('click', async(e) => {
     e.preventDefault();
@@ -26,6 +26,10 @@ $button.addEventListener('click', async(e) => {
 })
 
 function chatGPTAPI() {
+
+    const loadingMessage = document.getElementById('loading_msg');
+    loadingMessage.style.display = 'block';
+
     fetch(url, {
         method: 'POST',
         headers: {
@@ -38,6 +42,7 @@ function chatGPTAPI() {
     })
     .then(res => res.json())
     .then(res => {
+        loadingMessage.style.display = 'none';
         answerElement.style.display = 'flex';
         answerContent.innerHTML = `<p>${res.choices[0].message.content.replace(/\n/g, '<br>')}</p>`
     })
