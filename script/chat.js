@@ -1,6 +1,9 @@
-const $input = document.querySelector('input');
+
+// import {chatGPTAPI} from './chatGPTAPI.js';
+
+// const $input = document.querySelector('input');
 const $button = document.querySelector('button');
-const $answer = document.querySelector('.answer');
+// const $answer = document.querySelector('.answer');
 
 const data = [];
 
@@ -38,6 +41,9 @@ $button.addEventListener('click', async(e) => {
 })
 
 function chatGPTAPI() {
+    const loadingMessage = document.getElementById('loading_msg');
+    loadingMessage.style.display = 'block';
+
     fetch(url, {
         method: 'POST',
         headers: {
@@ -50,8 +56,9 @@ function chatGPTAPI() {
     })
     .then(res => res.json())
     .then(res => {
+        
+        loadingMessage.style.display = 'none';
         answerElement.style.display = 'flex';
         answerContent.innerHTML = `<p>${res.choices[0].message.content.replace(/\n/g, '<br>')}</p>`
-        // answerContent.textContent = res;
     })
 }

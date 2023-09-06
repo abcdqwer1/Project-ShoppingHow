@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>ShoppingHow</title>
 
     <link rel="stylesheet" href="./css/style.css">
     
@@ -20,16 +20,23 @@
     <div class="main">
         
         <div class="mainLeft">
+
+            <!-- <div class="paging_btn">
+                <input type="checkbox" id="switch">
+                <label for="switch" class="switch_label">
+                    <span class="onf_btn"></span>
+                </label>
+            </div> -->
     
             <form class="productSearch" method="post">
                 <label for="productType">원하시는 상품 종류가 무엇인가요?</label>
-                <input in="productType" id="productType" type="text" placeholder="예) 신발, 자켓, 아무거나" autocomplete="on">
+                <input in="productType" id="productType" type="text" placeholder="예) 신발, 자켓, 없음" autocomplete="on">
     
                 <label for="productPrice">원하시는 가격대가 얼마인가요?</label>
                 <input in="productPrice" id="productPrice" type="text" placeholder="예) 10만원대, 5만원 이상">
     
                 <label for="destination">착용 장소가 어떻게 되나요?</label>
-                <input in="destination" id="destination" type="text" placeholder="예) 바다 여행">
+                <input in="destination" id="destination" type="text" placeholder="예) 바다여행, 제주도, 라이딩">
     
                 <div class="genderSelect" required="on">
                     <legend>성별</legend>
@@ -47,8 +54,12 @@
                     <select in="age" name="age" id="year" required="on"></select>
                 </div>
 
-                
-                <button type="submit">추천 받기</button>
+                <button class="btn1" type="submit" >검색</button>
+
+                <button class="btn2" type="button" onclick="moveSearch();">내용 직접 입력</button>
+
+                <p id="loading_msg"> 답변을 작성 중 입니다. 잠시만 기다려주세요. </p>
+
             </form>
         </div>
 
@@ -56,8 +67,15 @@
             <div class="answerItem" id="answerContent"><div>
         </div>
     </div>
+
         <footer></footer>
+
     <script src="./script/chat.js"></script>
+    <script src="./script/mvSearchHome.js"></script>
     <script src="./script/setDateYear.js"></script>
+    <!-- <script src="./script/loadingMsg.js"></script> -->
+    <!-- <script src="./script/chat_1.js"></script> -->
+    <!-- <script src="./script/paging.js"></script> -->
+
 </body>
 </html>

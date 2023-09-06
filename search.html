@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoppingHow</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/search.css">
+    
+    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+
+</head>
+
+<body>
+    <header>
+        <h1 class="web-title">Shopping How</h1>    
+    </header>
+    <div class="search_main">
+        
+        <div class="mainLeft">
+
+            <form class="productSearch2" method="post">
+
+                <label for="prompt">궁금한 내용을 물어보세요.</label>
+                <input id="question_prompt" in="prompt" type="text" placeholder="예) 회사 면접봐야하는데 복장을 어떻게 해야할까?">
+                
+                <div class="btn_grp">
+                    <button class="search_btn1" type="submit">검색</button>
+                    <button class="search_btn2" id="back_btn" type="button" onclick="moveMain();">뒤로 가기</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="answer">
+            <div class="answerItem" id="answerContent"><div>
+        </div>
+    </div>
+
+        <footer></footer>
+
+    <script src="./script/chat_1.js"></script>
+    <script src="./script/mvSearchHome.js"></script>
+
+</body>
+</html>
