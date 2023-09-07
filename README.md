@@ -60,7 +60,7 @@
 - 개인 프로젝트
 
 
-## 5. UI / BM
+## 5. UI 
 
 
 ![main](https://github.com/abcdqwer1/Project-ShoppingHow/assets/68181016/c0fa62d8-b7bf-42e0-931d-69470d4b7f5b)
